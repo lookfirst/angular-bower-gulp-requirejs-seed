@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+		<title>App</title>
+		<link href="lib.css" rel="stylesheet" />
+		<link href="app.css" rel="stylesheet" />
+		<link rel="icon" type="image/png" href="images/wrap_icon.png" />
+	</head>
+	<body>
+		<div ng-include="'nav/nav.html'"></div>
+
+		<div class="container">
+			<div flash-alert active-class="in alert" class="fade">
+				<span class="alert-{{flash.type}}">{{flash.message}}</span>
+			</div>
+			<div ui-view></div>
+		</div>
+		<script src="main.js"></script>
+	</body>
+</html>
