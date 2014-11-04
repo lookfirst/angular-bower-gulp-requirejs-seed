@@ -60,28 +60,28 @@ gulp.task('bower-requirejs', ['templates', 'coffee2js'], (cb) ->
 )
 
 gulp.task('r.js', ['set-deploy-config', 'bower-requirejs'], (cb) ->
+	stripLogging = (src) ->
+		src.replace(/\$log\..*\)/g, '')
+
 	requirejs.optimize({
 		name: 'main'
 		baseUrl: "#{JS_DIR}"
 		mainConfigFile: "#{JS_DIR}/main.js"
-		out: "#{DEPLOY_APP_DIR}/main.js"
-		optimize: 'none'
-		onModuleBundleComplete: ((data) ->
-
+		out: (text) ->
 			cleaned = amdclean.clean({
 				transformAMDChecks: true
-				filePath: "#{DEPLOY_APP_DIR}/main.js"
+				code: text
 				wrap: {
 					start: '(function() { window.amdCleaned = true; var google_code_prettify; ' # https://github.com/gfranko/amdclean/issues/63
 					end: '}());'
 				}
 			})
-			fs.writeFileSync("#{DEPLOY_APP_DIR}/main.js", cleaned)
+			fs.writeFileSync("#{DEPLOY_APP_DIR}/main.js", stripLogging(cleaned))
 
 			uglified = UglifyJS.minify("#{DEPLOY_APP_DIR}/main.js")
 
 			fs.writeFile("#{DEPLOY_APP_DIR}/main.js", uglified.code, cb)
-		)
+		optimize: 'none'
 	})
 )
 

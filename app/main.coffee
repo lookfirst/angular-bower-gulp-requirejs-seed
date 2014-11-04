@@ -10,7 +10,6 @@ configureRequire = ->
 				'angular-resource': '../bower_components/angular-resource/angular-resource'
 				'angular-flash': '../bower_components/angular-flash/dist/angular-flash'
 				'angular-cookies': '../bower_components/angular-cookies/angular-cookies'
-				'angular-logex': '../bower_components/angular-logex/dist/log-ex-unobtrusive.min'
 				'ng-sortable': '../bower_components/ng-sortable/dist/ng-sortable'
 				'google-code-prettify': '../bower_components/google-code-prettify/src/prettify'
 				'lodash': '../bower_components/lodash/dist/lodash.compat'
@@ -28,8 +27,6 @@ configureRequire = ->
 				'angular-flash':
 					{deps: ['angular']}
 				'angular-bootstrap':
-					{deps: ['angular']}
-				'angular-logex':
 					{deps: ['angular']}
 				'ng-sortable':
 					{deps: ['angular']}

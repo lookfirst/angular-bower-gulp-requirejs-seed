@@ -3,7 +3,6 @@ define((require) ->
 
 	homeModule.controller('HomeController', ['$scope', '$rootScope', '$log', ($scope, $rootScope, $log) ->
 		$rootScope.active = null
-		debugger
 		$log.info('main app ctrl')
 	])
 )
