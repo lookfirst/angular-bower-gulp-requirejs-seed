@@ -20,6 +20,7 @@
 		"angular-ui-router": "~0.2.11",
 		"angular-bootstrap": "~0.11.2",
 		"angular-flash": "~0.1.13",
+		"angular-logex": "~0.0.9",
 		"jsog": "~1.0.6",
 		"bootstrap": "~3.2.0",
 		"requirejs": "~2.1.15",

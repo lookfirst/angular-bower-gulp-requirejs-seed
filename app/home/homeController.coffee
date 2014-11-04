@@ -1,8 +1,9 @@
 define((require) ->
 	homeModule = require('home/homeModule')
 
-	homeModule.controller('HomeController', ['$scope', '$rootScope', ($scope, $rootScope) ->
+	homeModule.controller('HomeController', ['$scope', '$rootScope', '$log', ($scope, $rootScope, $log) ->
 		$rootScope.active = null
-		console.log('main app ctrl')
+		debugger
+		$log.info('main app ctrl')
 	])
 )

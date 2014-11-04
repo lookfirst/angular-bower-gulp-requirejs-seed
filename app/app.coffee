@@ -5,6 +5,7 @@ define((require) ->
 	require('angular-resource')
 	require('angular-cookies')
 	require('angular-flash')
+	require('angular-logex')
 	require('ng-sortable')
 	require('google-code-prettify')
 	require('jsog')
@@ -17,9 +18,12 @@ define((require) ->
 	require('config')
 	require('session')
 
-	angular.module('app', ['ui.bootstrap', 'ui.router', 'ui.sortable', 'ngResource', 'ngCookies', 'angular-flash.service', 'angular-flash.flash-alert-directive',
+	angular.module('app', ['log.ex.uo', 'ui.bootstrap', 'ui.router', 'ui.sortable', 'ngResource', 'ngCookies', 'angular-flash.service', 'angular-flash.flash-alert-directive',
 							'Home', 'Nav', 'Misc', 'templates', 'Session', 'app.constants'])
-	.config(['$httpProvider', '$stateProvider', '$urlRouterProvider', '$locationProvider', '$sceDelegateProvider', 'API_HOST', ($httpProvider, $stateProvider, $urlRouterProvider, $locationProvider, $sceDelegateProvider, API_HOST) ->
+	.config(['$httpProvider', '$stateProvider', '$urlRouterProvider', '$locationProvider', '$sceDelegateProvider', 'API_HOST', 'logExProvider',
+	($httpProvider, $stateProvider, $urlRouterProvider, $locationProvider, $sceDelegateProvider, API_HOST, logExProvider) ->
+
+		logExProvider.enableLogging(true)
 
 		$sceDelegateProvider.resourceUrlWhitelist(['self', "#{API_HOST}/**"])
 
