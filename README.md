@@ -1,3 +1,6 @@
+Please note that this project is dead. You should use this instead: [SystemJS + Angular Seed](https://github.com/lookfirst/systemjs-seed)
+==============================================
+
 Angular Bower Gulp RequireJS Seed
 ===================
 
